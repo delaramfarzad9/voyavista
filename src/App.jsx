@@ -1,14 +1,16 @@
-
+import { useState } from "react";
+import ExperiencesPage from "./pages/ExperiencesPage";
 
 function App() {
  const baseUrl= import.meta.env.VITE_API_URL;
- console.log(baseUrl)
+ console.log(baseUrl);
+ const [experiences,setExperiences]=useState([]);
+ const [loading,setLoading]=useState(true);
+ const [error,setError]=useState("");
 
   return (
     <>
-     <h1 className='text-2xl text-green-600 font-bold'>VoyaVista
-</h1>
-<p>Discover experiences worth remembering.</p>
+<ExperiencesPage/>
     </>
   )
 }

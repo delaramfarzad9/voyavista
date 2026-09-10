@@ -3,23 +3,31 @@ import express from "express";
 const app = express();
 const PORT = 3000;
 
-app.use((req, res, next) => {
-  console.log("REQUEST:", req.method, req.url);
-  next();
-});
+const experiences = [
+  {
+    id: 1,
+    title: "London Food Walking Tour",
+    city: "London",
+    category: "Food",
+    price: 45,
+    rating: 4.8,
+    available: true,
+  },
+  {
+    id: 2,
+    title: "Cotswolds Cycling Experience",
+    city: "Moreton-in-Marsh",
+    category: "Outdoor",
+    price: 65,
+    rating: 4.7,
+    available: true,
+  },
+];
 
 app.get("/experiences", (req, res) => {
-  res.json({ message: "VoyaVista experiences API" });
+  res.json(experiences);
 });
 
-const server = app.listen(PORT, () => {
+app.listen(PORT, () => {
   console.log(`Server running on ${PORT}`);
-});
-
-server.on("error", (error) => {
-  console.error("SERVER ERROR:", error);
-});
-
-server.on("close", () => {
-  console.log("SERVER CLOSED");
 });
