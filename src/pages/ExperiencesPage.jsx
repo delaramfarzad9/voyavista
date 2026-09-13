@@ -9,7 +9,7 @@ function ExperiencesPage() {
     <main className="mx-4 mt-4 mb-5">
       {/* header    */}
       <div className="flex flex-col gap-4">
-        <h1 className="text-3xl  text-green-800 font-pacifico  ">VoyaVista</h1>
+        
         <p className="text-lg font-semibold text-green-700 font-dm-serif-display tracking-wide">
           Discover experiences worth remembering.
         </p>
