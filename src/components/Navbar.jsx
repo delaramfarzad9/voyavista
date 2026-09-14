@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { IoMdMenu } from "react-icons/io";
 import { NavLink } from "react-router-dom";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { IoMdClose } from "react-icons/io";
 import { IoIosHeartEmpty } from "react-icons/io";
 import { IoHomeOutline } from "react-icons/io5";
@@ -18,11 +18,25 @@ function Navbar() {
 const [isMenuOpen,setIsMenuOpen]=useState(false);
 function closeMenu (){
   setIsMenuOpen(false)
+};
+useEffect(()=>{
+  function handleEscape(event){
+if (event.key==="Escape"){
+  closeMenu()
+}
+  };
+if(isMenuOpen){
+    document.addEventListener("keydown",handleEscape);
 }
 
+  return ()=>{
+    document.removeEventListener("keydown",handleEscape)
+  }
+},[isMenuOpen])
+
   return (
-   <header>
-     <nav className="relative z-50 mx-4 my-4 lg:mx-20 max-w-7xl flex flex-row justify-between items-center ">
+   <header className=" bg-orange-100 h-16 sticky top-0 left-0 right-0 z-50 shadow-md shadow-black/20">
+     <nav className="relative z-50  h-full mx-auto max-w-7xl flex flex-row justify-between items-center px-4 md:px-6 lg:px-8 ">
       {/* logo */}
       <Link className="font-pacifico md:text-3xl text-2xl text-emerald-800" to="/">VoyaVista</Link>
 {/* desktop menu  */}
@@ -34,12 +48,22 @@ function closeMenu (){
         Saved</NavLink>
         <NavLink to="/about">About</NavLink>
       </div>
-    {/* mobile menu */}
-      {isMenuOpen ?  (<div className="absolute z-50 min-w-3/5 max-w-md bg-orange-100 rounded-md  top-0 left-0 flex flex-col  md:hidden">
+    {/* mobile menu with backdrop */}
+      {isMenuOpen ?  (<div  className="inset-0 fixed z-40 md:hidden">
+      <button   type="button"
+    aria-label="Close navigation menu"
+    onClick={closeMenu}
+    className="absolute inset-0 bg-black/30 backdrop-blur-md"/>
+        <nav id="mobile-menu"
+  aria-label="Mobile navigation" className="absolute z-50 min-w-3/5 max-w-md bg-orange-100 rounded-br-md top-0 left-0 flex flex-col  md:hidden shadow-lg shadow-black/20">
       {/* close */}
-         <button type="button" onClick={closeMenu} className="flex justify-end bg-emerald-900 rounded-t-md p-2 ">
-          <IoMdClose className="text-white text-xl "/>
+       <div className="flex justify-end bg-emerald-900  p-2 ">
+          <button
+          aria-label="Close navigation menu"
+           type="button" onClick={closeMenu} >
+          <IoMdClose aria-hidden="true" className="text-white text-xl "/>
           </button>
+       </div>
           {/* links */}
           
          <div className="flex flex-col space-y-2 text-emerald-900 *:p-2  *:hover:bg-emerald-100 *:w-full *:flex *:flex-row *:justify-between *:items-center *:gap-2 *:text-lg *:font-bold "> 
@@ -73,8 +97,14 @@ function closeMenu (){
         </div>
         <IoChevronForwardSharp/></NavLink>
          </div>
-      </div>) :  (<button onClick={()=>setIsMenuOpen(true)} className=" md:hidden">
-        <IoMdMenu className="text-2xl  text-emerald-700"/>
+      </nav>
+      </div>) :  (<button
+      
+      aria-label="Open navigation menu"
+  aria-expanded={isMenuOpen}
+  aria-controls="mobile-menu"
+      onClick={()=>setIsMenuOpen(true)} className=" md:hidden">
+        <IoMdMenu aria-hidden="true" className="text-2xl  text-emerald-700"/>
       </button>)}
       {/* booking */}
       <NavLink className="hidden md:flex md:text-lg text-base text-emerald-700 font-bold " to="/booking">Booking</NavLink>

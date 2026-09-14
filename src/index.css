@@ -55,3 +55,9 @@ body {
 body{
   @apply bg-gray-100 dark:bg-gray-900
 }
+.hero {
+  background-image: url("/images/sevensisters_hero.png");
+  background-repeat: no-repeat;
+  margin-top: 0;
+  padding-top: 0;
+}
