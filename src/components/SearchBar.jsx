@@ -1,12 +1,21 @@
 import { CiSearch } from "react-icons/ci";
-function SearchBar({placeholder,className,searchtitle}){
+import { useId } from "react";
+function SearchBar({placeholder,className}){
+    const searchId=useId();
+    function handleSearch(event){
+        event.preventDefault();
+    }
     return(
-        <div className="flex flex-row items-center justify-between max-w-md border border-green-600 py-4 px-8 rounded-full my-8">
-            <CiSearch className="text-2xl text-green-600"/>
-            <label htmlFor="search" className="sr-only">`search{searchtitle}`</label>
-            <input id="search" type="search" name="search" placeholder={placeholder} autoComplete="off"  className={`w-full outline-none pl-2  ${className}`}/>
+        <form onSubmit={handleSearch} className={`flex  items-center justify-between py-1  md:py-2 md:px-4 pr-1 pl-2 rounded-full  shadow-md shadow-black/20   ${className}`}>
+          <div className="flex flex-1 min-w-0 items-center">
+              <CiSearch  aria-hidden="true" className="text-lg md:text-2xl text-[#1a3f22] "/>
+            <label htmlFor={searchId} className="sr-only">search</label>
+            <input id={searchId} type="search" name="search" placeholder={placeholder} autoComplete="off"  className=" outline-none pl-2 text-sm  min-w-0 flex-1 "/>
             
-        </div>
+          </div>
+            <button  type="submit" className="shrink-0 bg-[#1a3f22] text-sm   px-4 py-2 text-gray-100  hover:bg-[#58761b] transition-colors duration-200 rounded-full shadow-md ">Search</button>
+            
+        </form>
     )
 }
-export default SearchBar
+export default SearchBar 

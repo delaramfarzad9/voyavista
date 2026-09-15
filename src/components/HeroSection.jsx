@@ -3,32 +3,67 @@ import { IoMdArrowForward } from "react-icons/io";
 import { IoLocationOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import SearchBar from "./SearchBar";
+import SearchSuggestions from "./SearchSuggestions";
+import { useState } from "react";
+
 function HeroSection() {
+  const[currentSlide,setCurrentSlide]=useState(1);
+  const slides = [
+  {
+    image: "/images/sevensisters_hero.png",
+    location: "Seven Sisters",
+    region: "East Sussex",
+  },
+  {
+    image: "/images/stonehenge2_hero.png",
+    location: "Stonehenge",
+    region: "Wiltshire",
+  },
+  {
+    image: "/images/london_hero.png",
+    location: "London",
+    region: "England",
+  },
+];
     return(
-<section className="relative hero w-full  h-[calc(100vh-4rem)] flex  items-center pl-20 ">
+<section className="relative hero w-full   bg-cover
+    bg-center
+    bg-no-repeat h-[70vh] md:h-[calc(100vh-4rem)] flex  items-center md:px-20 px-5"
+    style={{backgroundImage:`url(${slides[currentSlide].image})`}}
+    
+    >
         {/* left side */}
-      <div className="flex flex-col gap-4  ">
-        <p className="text-xs font-semibold uppercase tracking-[0.3em] text-white/80">
+      <div className="flex flex-col gap-4  translate-y-[-10%]  ">
+        <p className="text-[0.7rem] md:text-xs font-semibold uppercase tracking-[0.3em] text-yellow-300/80">
   Voyage · Discover · Remember
 </p>
-          <h1 className="text-gray-100 font-dm-serif-display  text-5xl shadow-lg ">Discover more of the UK.</h1>
-        <p className="max-w-md leading-relaxed text-gray-200 text-xl">From dramatic coastlines to hidden countryside escapes, find places and experiences worth the journey.</p>
-          <Link to="/experiences" className="self-start flex gap-2  justify-center items-center bg-emerald-800 rounded-lg px-4 py-2 text-white font-semibold hover:bg-emerald-600 transition-colors duration-200">
+          <h1 className="text-[#fec30e] text-shadow-gray-800 text-shadow-lg font-dm-serif-display text-2xl md:text-5xl  ">Discover more of the UK.</h1>
+        <p className="md:max-w-md max-w-xs leading-relaxed text-gray-100 text-sm md:text-xl">From dramatic coastlines to hidden countryside escapes <span className="hidden md:inline">—find places and experiences worth the journey.</span></p>
+          <Link to="/experiences" className="hidden md:flex text-xs md:text-base self-start gap-2  shadow-md  shadow-gray-800 justify-center items-center bg-[#1a3f22] rounded-lg px-4 py-2 text-gray-100 font-semibold hover:bg-[#58761b] transition-colors duration-200">
         Start Exploring
-        <IoMdArrowForward className=" text-lg"/>
+        <IoMdArrowForward aria-hidden="true"  className=" text-lg"/>
         </Link>
       </div>
-      {/* right side */}
-      <div className="flex flex-row gap-1 text-sm font-semibold text-gray-100 items-center justify-center absolute bottom-20 right-10">
+      {/* right side location */}
+      <div className="flex gap-1 md:text-sm font-semibold text-gray-100 items-center  absolute lg:bottom-20 lg:right-10 bottom-30 sm:bottom-40 right-5 text-[10px]">
         <IoLocationOutline aria-hidden="true"/>
-        <p>Seven Sisters · East Sussex</p>
+        <p>{slides[currentSlide].location}</p>
+        <p className="hidden sm:flex">{`·${slides[currentSlide].region}`}</p>
       </div>
       {/* search bar middle bottom */}
-    
-      {/* <div className="bg-gray-100 rounded-lg shadow-lg shadow-black/20 absolute bottom-0 left-1/2 transform  w-full max-w-3xl p-4">
-<SearchBar placeholder="Search experiences" className="w-full max-w-md mx-auto"/>
-      </div> */}
-      </section> 
+  <div className="flex flex-col justify-center items-center gap-2 md:gap-4 absolute bottom-0 left-1/2  -translate-x-1/2 translate-y-1/3  md:translate-y-0  z-25  mb-2  ">
+      <SearchBar placeholder="Where do you want to go?"  className="bg-gray-100 w-[calc(100vw-2rem)] max-w-md "/>
+      {/* suggestion bar  */}
+        <div className="flex flex-row gap-2 justify-center items-center  ">
+            <SearchSuggestions title="Scottish Highlands"/>
+        <SearchSuggestions title="Historical"/>
+        <SearchSuggestions className="hidden md:flex" title="Countryside"/>
+        <SearchSuggestions title="London"/>
+      
+        </div>
+  </div>
+        
+        </section> 
     )
 }
 export default HeroSection

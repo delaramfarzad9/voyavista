@@ -35,12 +35,12 @@ if(isMenuOpen){
 },[isMenuOpen])
 
   return (
-   <header className=" bg-orange-100 h-16 sticky top-0 left-0 right-0 z-50 shadow-md shadow-black/20">
+   <header className=" bg-[#58761b]/40 h-16 sticky top-0 left-0 right-0 z-50 shadow-md shadow-black/20">
      <nav className="relative z-50  h-full mx-auto max-w-7xl flex flex-row justify-between items-center px-4 md:px-6 lg:px-8 ">
       {/* logo */}
-      <Link className="font-pacifico md:text-3xl text-2xl text-emerald-800" to="/">VoyaVista</Link>
+      <Link className="font-pacifico md:text-3xl text-2xl text-[#1a3f22]" to="/">VoyaVista</Link>
 {/* desktop menu  */}
-      <div className="hidden md:flex *:text-lg text-emerald-700 font-bold  flex-row  sm:gap-4 md:gap-6 lg:gap-8">
+      <div className="hidden md:flex *:text-lg text-[#1a3f22] *:hover:text-[#fec30e] delay-200  transition-all font-bold  flex-row  sm:gap-4 md:gap-6 lg:gap-8">
         <NavLink to="/">Home</NavLink>
         <NavLink to="/experiences">Explore</NavLink>
         <NavLink className="flex flex-row gap-1 justify-center items-center" to="/saved">
@@ -57,16 +57,16 @@ if(isMenuOpen){
         <nav id="mobile-menu"
   aria-label="Mobile navigation" className="absolute z-50 min-w-3/5 max-w-md bg-orange-100 rounded-br-md top-0 left-0 flex flex-col  md:hidden shadow-lg shadow-black/20">
       {/* close */}
-       <div className="flex justify-end bg-emerald-900  p-2 ">
+       <div className="flex justify-end bg-[#1a3f22]  p-2 ">
           <button
           aria-label="Close navigation menu"
            type="button" onClick={closeMenu} >
-          <IoMdClose aria-hidden="true" className="text-white text-xl "/>
+          <IoMdClose aria-hidden="true" className="hover:text-[#fec30e] text-gray-100 text-xl "/>
           </button>
        </div>
           {/* links */}
           
-         <div className="flex flex-col space-y-2 text-emerald-900 *:p-2  *:hover:bg-emerald-100 *:w-full *:flex *:flex-row *:justify-between *:items-center *:gap-2 *:text-lg *:font-bold "> 
+         <div className="flex flex-col space-y-2 text-[#1a3f22] *:p-2 *:hover:text-shadow-amber-200 *:hover:text-shadow-xs  *:hover:bg-[#58761b]/10  *:w-full *:flex *:flex-row *:justify-between *:items-center *:gap-2 *:text-lg *:font-bold "> 
           {/* home */}
           <NavLink  to="/" onClick={closeMenu}>
          <div className="flex flex-row gap-2 items-center">
@@ -104,10 +104,10 @@ if(isMenuOpen){
   aria-expanded={isMenuOpen}
   aria-controls="mobile-menu"
       onClick={()=>setIsMenuOpen(true)} className=" md:hidden">
-        <IoMdMenu aria-hidden="true" className="text-2xl  text-emerald-700"/>
+        <IoMdMenu aria-hidden="true" className="text-2xl  text-[#1a3f22]"/>
       </button>)}
       {/* booking */}
-      <NavLink className="hidden md:flex md:text-lg text-base text-emerald-700 font-bold " to="/booking">Booking</NavLink>
+      <NavLink className="hidden md:flex md:text-lg text-base text-[#1a3f22] font-bold " to="/booking">Booking</NavLink>
     </nav>
    </header>
   );
