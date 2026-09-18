@@ -4,7 +4,10 @@ import { IoLocationOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import SearchBar from "./SearchBar";
 import SearchSuggestions from "./SearchSuggestions";
-import { useState } from "react";
+import { useState,useEffect } from "react";
+import { MdOutlineNavigateNext } from "react-icons/md";
+import { GrFormPrevious } from "react-icons/gr";
+
 
 function HeroSection() {
   const[currentSlide,setCurrentSlide]=useState(1);
@@ -25,13 +28,34 @@ function HeroSection() {
     region: "England",
   },
 ];
+function nextSlide() {
+setCurrentSlide((previousSlide)=>
+previousSlide===slides.length-1 ? 0 : previousSlide+1)
+};
+
+function previousSlide() {
+ setCurrentSlide((previousSlide)=>
+previousSlide===0 ? slides.length-1 : previousSlide-1)
+};
+useEffect(() => {
+  const interval = setInterval(() => {
+    nextSlide();
+  }, 5000);
+
+
+  return () => {
+    clearInterval(interval);
+  };
+}, []);
+
     return(
 <section className="relative hero w-full   bg-cover
     bg-center
-    bg-no-repeat h-[70vh] md:h-[calc(100vh-4rem)] flex  items-center md:px-20 px-5"
+    bg-no-repeat h-[70vh] md:h-screen flex  items-center md:px-20 px-5"
     style={{backgroundImage:`url(${slides[currentSlide].image})`}}
     
     >
+     
         {/* left side */}
       <div className="flex flex-col gap-4  translate-y-[-10%]  ">
         <p className="text-[0.7rem] md:text-xs font-semibold uppercase tracking-[0.3em] text-yellow-300/80">
@@ -50,9 +74,22 @@ function HeroSection() {
         <p>{slides[currentSlide].location}</p>
         <p className="hidden sm:flex">{`·${slides[currentSlide].region}`}</p>
       </div>
+     
       {/* search bar middle bottom */}
-  <div className="flex flex-col justify-center items-center gap-2 md:gap-4 absolute bottom-0 left-1/2  -translate-x-1/2 translate-y-1/3  md:translate-y-0  z-25  mb-2  ">
+  <div className="flex flex-col justify-center items-center gap-2 md:gap-4 absolute bottom-0 left-1/2  -translate-x-1/2   md:translate-y-0  z-25  mb-2  ">
+   {/* Carousel navigation dots */}
+      <div className="flex gap-2">
+        {slides.map((slide, index) => (
+      <button  key={index}
+       type="button"
+        onClick={()=>setCurrentSlide(index)}
+         aria-label={`Show ${slide.location}`}
+         className={`w-3 h-3 rounded-full ${
+        index===currentSlide ? "bg-gray-100" : "bg-gray-100/40 transition-colors duration-300"
+      }`} />
+      ))}</div>
       <SearchBar placeholder="Where do you want to go?"  className="bg-gray-100 w-[calc(100vw-2rem)] max-w-md "/>
+      
       {/* suggestion bar  */}
         <div className="flex flex-row gap-2 justify-center items-center  ">
             <SearchSuggestions title="Scottish Highlands"/>
@@ -62,7 +99,12 @@ function HeroSection() {
       
         </div>
   </div>
-        
+         {/* next & prev buttons of the hero image */}
+         <button className="absolute top-1/2 -translate-y-1/2 right-0 text-gray-100/60 " aria-label="next slide" onClick={nextSlide}>
+          <MdOutlineNavigateNext className="text-6xl"/>
+         </button>
+         <button   aria-label="Previous slide" onClick={previousSlide} className=" absolute top-1/2 -translate-y-1/2 left-0 text-gray-100/60 ">
+          <GrFormPrevious className="text-6xl"/></button>
         </section> 
     )
 }
