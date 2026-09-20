@@ -1,9 +1,10 @@
 import { CiStar, CiLocationOn } from "react-icons/ci";
 import {Link} from "react-router-dom";
 
+
 function ExperienceCard({
   id,
-  image = "/images/london.png",
+  image ,
   alt = "",
   title = "Food",
   location = "London",
@@ -16,8 +17,8 @@ function ExperienceCard({
       <div className="aspect-4/3 w-full overflow-hidden">
         <img
           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
-          src={image}
-          alt={alt}
+          src={image || "/images/default_image.png"}
+          alt={image? alt : ""}
         />
       </div>
 

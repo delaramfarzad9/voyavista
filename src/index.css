@@ -40,11 +40,13 @@
   font-weight: 400;
   src: url("/fonts/pacifico-v23-latin-regular.woff2") format("woff2");
 }
+
 @theme {
   
   --font-inter: Inter, "sans-serif";
   --font-dm-serif-display: "DM Serif Display", "serif";
   --font-pacifico: "Pacifico", "cursive";
+ 
 }
 body {
   font-family: var(--font-inter);
