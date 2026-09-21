@@ -6,9 +6,11 @@ function Home() {
     <div>
      <main>
     <HeroSection/> 
-    <p className="font-semibold text-center mt-5 text-2xl border border-gray-200 mx-auto p-4 shadow text-cyan-900 "> Handpicked for your next escape
+  <section className="flex flex-col items-center justify-center">
+      <p className="max-w-xl font-semibold text-left mt-10 text-2xl rounded-full mx-auto p-4 text-cyan-900 "> Handpicked for your next escape
           Discover remarkable places across the UK.</p>
-    <FeaturedExperiences className="my-5"/> 
+    <FeaturedExperiences className="my-5 mx-4 md:mx-10 lg:mx-20"/> 
+  </section>
      </main>
     </div>
   );

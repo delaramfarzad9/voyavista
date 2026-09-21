@@ -1,7 +1,7 @@
 export const featuredExperiences = [
   {
     id: 1,
-    image: "/images/cotswolds.jpg",
+  
     alt: "Traditional stone cottages in the Cotswolds countryside",
     title: "Cotswolds Village Escape",
     location: "Cotswolds, Gloucestershire",
@@ -11,7 +11,7 @@ export const featuredExperiences = [
   },
   {
     id: 2,
-    image: "/images/seven-sisters.jpg",
+  
     alt: "White chalk cliffs overlooking the sea at Seven Sisters",
     title: "Seven Sisters Coastal Walk",
     location: "East Sussex",
@@ -21,7 +21,7 @@ export const featuredExperiences = [
   },
   {
     id: 3,
-    image: "/images/bath.jpg",
+   
     alt: "Historic Georgian architecture in Bath",
     title: "Historic Bath Discovery",
     location: "Bath, Somerset",
@@ -29,14 +29,5 @@ export const featuredExperiences = [
     price: 68,
     rating: 4.7,
   },
-  {
-    id: 4,
-    image: "/images/highlands.jpg",
-    alt: "Mountain landscape in the Scottish Highlands",
-    title: "Highlands Scenic Adventure",
-    location: "Scottish Highlands",
-    category: "Adventure",
-    price: 120,
-    rating: 4.9,
-  },
+
 ];

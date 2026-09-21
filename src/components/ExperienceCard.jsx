@@ -5,20 +5,21 @@ import {Link} from "react-router-dom";
 function ExperienceCard({
   id,
   image ,
-  alt = "",
-  title = "Food",
-  location = "London",
-  category = "Food",
-  price = 96,
-  rating = 4.5,
+  alt ,
+  title ,
+  location ,
+  category ,
+  price ,
+  rating ,
 }) {
   return (
-    <article className="group flex h-full w-full flex-col overflow-hidden rounded-xl border border-gray-200 bg-white transition-colors duration-300 hover:border-emerald-300">
+    <article className="group flex h-full w-full flex-col overflow-hidden rounded-xl bg-stone-200 transition-colors duration-300 shadow-md">
       <div className="aspect-4/3 w-full overflow-hidden">
         <img
           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
           src={image || "/images/default_image.png"}
           alt={image? alt : ""}
+        
         />
       </div>
 
