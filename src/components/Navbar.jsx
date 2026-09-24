@@ -35,13 +35,13 @@ if(isMenuOpen){
 },[isMenuOpen])
 
   return (
-   <header className=" h-16 absolute top-0 left-0 right-0 z-50   backdrop-blur-xl bg-orange-200/50    transition-colors duration-300
+   <header className=" h-16 absolute top-0 left-0 right-0 z-50   backdrop-blur-xl bg-stone-200/50    transition-colors duration-300
     shadow-lg ">
      <nav className="relative z-50  h-full mx-auto max-w-7xl flex flex-row justify-between items-center px-4 md:px-6 lg:px-8 ">
       {/* logo */}
-      <Link className="font-pacifico md:text-3xl text-2xl text-[#1a3f22]" to="/">VoyaVista</Link>
+      <Link className="font-pacifico md:text-3xl text-2xl text-teal-700" to="/">VoyaVista</Link>
 {/* desktop menu  */}
-      <div className="hidden md:flex *:text-lg text-[#1a3f22] *:hover:text-[#fec30e] delay-200  transition-all font-bold  flex-row  sm:gap-4 md:gap-6 lg:gap-8 ">
+      <div className="hidden md:flex *:text-lg text-teal-700 *:hover:text-teal-500 delay-200  transition-all font-bold  flex-row  sm:gap-4 md:gap-6 lg:gap-8 ">
         <NavLink to="/">Home</NavLink>
         <NavLink to="/experiences">Explore</NavLink>
         <NavLink className="flex flex-row gap-1 justify-center items-center" to="/saved">
@@ -108,7 +108,19 @@ if(isMenuOpen){
         <IoMdMenu aria-hidden="true" className="text-2xl  text-[#1a3f22]"/>
       </button>)}
       {/* booking */}
-      <NavLink className="hidden md:flex md:text-lg text-base text-[#1a3f22] font-bold " to="/booking">Booking</NavLink>
+      <NavLink className="    hidden md:flex
+    items-center
+    rounded-full
+    border border-white/60
+    bg-white/25
+    px-5 py-2
+    text-sm font-semibold text-teal-700
+    backdrop-blur-xl
+    shadow-lg shadow-black/10
+    transition-all duration-300
+    hover:bg-white/40
+    hover:shadow-xl
+    hover:-translate-y-0.5" to="/booking">Book Your Experience</NavLink>
     </nav>
    </header>
   );
