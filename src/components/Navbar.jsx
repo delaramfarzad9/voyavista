@@ -5,7 +5,6 @@ import { useState,useEffect } from "react";
 import { IoMdClose } from "react-icons/io";
 import { IoIosHeartEmpty } from "react-icons/io";
 import { IoHomeOutline } from "react-icons/io5";
-
 import { IoMapOutline } from "react-icons/io5";
 import { SlCalender } from "react-icons/sl";
 import { IoIosInformationCircleOutline } from "react-icons/io";
@@ -35,7 +34,7 @@ if(isMenuOpen){
 },[isMenuOpen])
 
   return (
-   <header className=" h-16 absolute top-0 left-0 right-0 z-50   backdrop-blur-xl bg-stone-200/50    transition-colors duration-300
+   <header className=" h-16 sticky  top-0 left-0 right-0 z-50   backdrop-blur-xl bg-stone-200/50    transition-colors duration-300
     shadow-lg ">
      <nav className="relative z-50  h-full mx-auto max-w-7xl flex flex-row justify-between items-center px-4 md:px-6 lg:px-8 ">
       {/* logo */}

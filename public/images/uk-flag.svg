@@ -1,0 +1,36 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 60 30"
+  preserveAspectRatio="none"
+>
+  <!-- Full blue background -->
+  <rect width="60" height="30" fill="#012169"/>
+
+  <!-- White diagonal cross -->
+  <path
+    d="M0 0 L7 0 L60 26.5 L60 30 L53 30 L0 3.5 Z"
+    fill="#FFFFFF"
+  />
+  <path
+    d="M60 0 L53 0 L0 26.5 L0 30 L7 30 L60 3.5 Z"
+    fill="#FFFFFF"
+  />
+
+  <!-- Red diagonal cross -->
+  <path
+    d="M0 0 L3.5 0 L60 28.25 L60 30 L56.5 30 L0 1.75 Z"
+    fill="#C8102E"
+  />
+  <path
+    d="M60 0 L56.5 0 L0 28.25 L0 30 L3.5 30 L60 1.75 Z"
+    fill="#C8102E"
+  />
+
+  <!-- White vertical/horizontal cross -->
+  <rect x="25" width="10" height="30" fill="#FFFFFF"/>
+  <rect y="10" width="60" height="10" fill="#FFFFFF"/>
+
+  <!-- Red vertical/horizontal cross -->
+  <rect x="27" width="6" height="30" fill="#C8102E"/>
+  <rect y="12" width="60" height="6" fill="#C8102E"/>
+</svg>

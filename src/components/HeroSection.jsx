@@ -51,12 +51,13 @@ useEffect(() => {
 }, []);
 
     return(
-<section className="  w-full mt-16 md:mt-24 flex flex-col md:flex-row  gap-8 md:gap-12 lg:gap-20   items-start md:items-center px-5 md:px-10 lg:px-20"
+    
+<section className="relative overflow-hidden  w-full md:my-10 flex flex-col md:flex-row  gap-8 md:gap-12 lg:gap-20   items-start md:items-center px-5 md:px-10 lg:px-20"
     
     
     >
 
-     
+
         {/* left side */}
       <div className="flex flex-col gap-8   ">
         <div>
@@ -73,7 +74,7 @@ useEffect(() => {
         </Link>
         
       </div>
-      {/* right side Image */}
+      {/*  Hero Image  */}
 <div
   className="
     relative
