@@ -4,6 +4,7 @@ import FeaturedExperiences from "../components/FeaturedExperiences";
 import SearchAndSuggestions from "../components/SearchAndSuggestions";
 import AboutSection from "../components/AboutSection";
 
+
 function Home() {
   return (
    
