@@ -3,13 +3,12 @@ import { IoMdArrowForward } from "react-icons/io";
 import { IoSearchOutline, IoHeartOutline } from "react-icons/io5";
 import { SlCalender } from "react-icons/sl";
 
+
 function About() {
   return (
     <main className="overflow-hidden">
 
-      {/* =====================================================
-          HERO
-      ====================================================== */}
+     {/* hero */}
       <section
         className="
           px-5 py-16
@@ -63,9 +62,7 @@ function About() {
       </section>
 
 
-      {/* =====================================================
-          OUR PURPOSE
-      ====================================================== */}
+      {/* our purpose  */}
       <section
         className="
           mx-auto
@@ -174,10 +171,7 @@ function About() {
         </div>
       </section>
 
-
-      {/* =====================================================
-          PERSONAL DISCOVERY
-      ====================================================== */}
+{/* personal discovery  */}
       <section className="bg-teal-50/50">
         <div
           className="
@@ -256,11 +250,12 @@ function About() {
             "
           >
             <img
-              src="/images/stonehenge2_hero.png"
-              alt="Stonehenge in Wiltshire"
+              src="/images/edinburg_about.png"
+              alt="Edinburgh skyline"
               className="
                 h-full w-full
                 object-cover
+                object-[10%_center]
                 transition-transform
                 duration-700
                 hover:scale-[1.03]
@@ -271,9 +266,7 @@ function About() {
       </section>
 
 
-      {/* =====================================================
-          BUILT AROUND THE USER
-      ====================================================== */}
+      {/* built around you  */}
       <section
         className="
           px-5 py-20
@@ -330,15 +323,14 @@ function About() {
             md:gap-14
           "
         >
-          {/* Discover */}
-          <div className="text-center">
+           <div className="text-center">
             <div
               className="
                 mx-auto
                 flex h-14 w-14
                 items-center justify-center
                 rounded-full
-                bg-teal-50
+                bg-amber-50
                 text-2xl
                 text-teal-700
               "
@@ -378,7 +370,7 @@ function About() {
                 flex h-14 w-14
                 items-center justify-center
                 rounded-full
-                bg-emerald-50
+                bg-teal-50
                 text-2xl
                 text-teal-700
               "
@@ -419,7 +411,7 @@ function About() {
                 flex h-14 w-14
                 items-center justify-center
                 rounded-full
-                bg-amber-50
+                bg-sky-100
                 text-2xl
                 text-teal-700
               "
@@ -454,9 +446,7 @@ function About() {
       </section>
 
 
-      {/* =====================================================
-          FINAL CTA
-      ====================================================== */}
+{/* final CTA  */}
       <section className="px-5 pb-20 md:px-10 md:pb-24 lg:px-20">
         <div
           className="
@@ -465,17 +455,20 @@ function About() {
             flex-col
             items-center
             rounded-3xl
-            bg-teal-800
+           bg-green-100/60
             px-6 py-14
             text-center
             md:px-12 md:py-16
+           
+border border-green-100
+shadow-sm
           "
         >
           <p
             className="
               text-xs font-semibold
               tracking-[0.2em]
-              text-teal-200
+               text-teal-600
             "
           >
             START YOUR NEXT JOURNEY
@@ -486,7 +479,7 @@ function About() {
               mt-3
               font-dm-serif-display
               text-3xl
-              text-white
+              text-gray-900
               md:text-4xl
             "
           >
@@ -498,7 +491,7 @@ function About() {
               mt-4
               max-w-xl
               text-sm leading-7
-              text-teal-50/80
+               text-gray-500
               md:text-base
             "
           >
@@ -506,18 +499,19 @@ function About() {
           </p>
 
           <Link
-            to="/explore"
+            to="/experiences"
             className="
               mt-7
               inline-flex
               items-center
               gap-2
               rounded-full
-              bg-white
+              text-gray-100
+              bg-teal-700
               px-6 py-3
               text-sm
               font-medium
-              text-teal-800
+             
               transition-all
               duration-300
               hover:-translate-y-0.5

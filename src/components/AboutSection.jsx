@@ -40,7 +40,7 @@ function AboutSection (){
           number="Step 1"
           header="EXPLORE"
           text="Find experiences that match what you're looking for."
-           bgColor="bg-teal-50"
+           bgColor="bg-teal-50 "
         />
 
         <HomeAboutSections
@@ -56,7 +56,7 @@ function AboutSection (){
           number="Step 3"
           header="SAVE"
           text="Keep your favourite experiences for later."
-          bgColor="bg-rose-50"
+          bgColor="bg-sky-100 "
         />
 
 </div>
