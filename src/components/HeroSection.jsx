@@ -110,6 +110,7 @@ useEffect(() => {
       hidden
       bg-cover bg-center bg-no-repeat
       md:block
+      
     "
   />
 
