@@ -28,8 +28,8 @@ function FeaturedExperiences({className}) {
   
 {featuredExperiences.map((experience) => (
         <ExperienceCard
-          key={experience.id}
-        {...experience}
+     key={experience.id}
+    experience={experience}
         />
       ))}
 

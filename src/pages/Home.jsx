@@ -8,7 +8,7 @@ import AboutSection from "../components/AboutSection";
 function Home() {
   return (
    
-     <main className="">
+     <main className="mt-10">
     <HeroSection/> 
     {/* section2  */}
  <section className="flex flex-col  my-5 md:my-12 mx-4 md:mx-10">

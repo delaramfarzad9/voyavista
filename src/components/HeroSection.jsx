@@ -59,7 +59,7 @@ useEffect(() => {
 
 
         {/* left side */}
-      <div className="flex flex-col gap-8   ">
+      <div className="flex flex-col gap-4 md:gap-8  ">
         <div>
           <p className="text-[0.7rem] md:text-xs font-semibold uppercase tracking-[0.3em] text-teal-800">
   Voyage · Discover · Remember
@@ -68,9 +68,9 @@ useEffect(() => {
         </div>
         <p className="md:max-w-lg max-w-xs leading-relaxed text-mist-600 text-sm md:text-xl">From dramatic coastlines to hidden countryside escapes <span className="hidden md:inline ">—find places and experiences worth the journey.</span></p>
         {/* CTA BUTTON */}
-          <Link to="/experiences" className="hidden md:flex text-xs md:text-base self-start gap-2  shadow-md  shadow-stone-700 justify-center items-center bg-teal-800 rounded-lg px-4 py-2 text-gray-100 font-semibold hover:bg-teal-700 hover:scale-[1.02] transition-all duration-200">
+          <Link to="/experiences" className="flex text-xs md:text-base self-start gap-2  shadow-md  shadow-stone-700 justify-center items-center bg-teal-800 rounded-lg px-4 py-2 text-gray-100 font-semibold hover:bg-teal-700 hover:scale-[1.02] transition-all duration-200 ">
         Start Exploring
-        <IoMdArrowForward aria-hidden="true"  className=" text-lg"/>
+        <IoMdArrowForward aria-hidden="true"  className="text-lg"/>
         </Link>
         
       </div>

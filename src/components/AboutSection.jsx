@@ -31,7 +31,7 @@ function AboutSection (){
         className="
           mt-10
           flex w-full max-w-4xl
-          flex-col items-center
+          flex-col items-center gap-4
           md:flex-row md:items-start md:justify-between
         "
       >
@@ -61,7 +61,7 @@ function AboutSection (){
 
 </div>
 {/* CTA TO ABOUT PAGE */}
-<div className="flex flex-col items-center gap-3 justify-center md:mt-10">
+<div className="flex flex-col items-center gap-3 justify-center mt-5 md:mt-10">
   <p className=" text-gray-500 font-semibold">
     See how VoyaVista makes discovering the UK simpler.
   </p>

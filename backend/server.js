@@ -1,28 +1,15 @@
 import express from "express";
+import cors from "cors";
+import experiences from "./data/experiences.js"
 
 const app = express();
+
+app.use(cors({
+  origin: "http://localhost:5173"
+}));
 const PORT = 3000;
 
-const experiences = [
-  {
-    id: 1,
-    title: "London Food Walking Tour",
-    city: "London",
-    category: "Food",
-    price: 45,
-    rating: 4.8,
-    available: true,
-  },
-  {
-    id: 2,
-    title: "Cotswolds Cycling Experience",
-    city: "Moreton-in-Marsh",
-    category: "Outdoor",
-    price: 65,
-    rating: 4.7,
-    available: true,
-  },
-];
+
 
 app.get("/experiences", (req, res) => {
   res.json(experiences);

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 function Footer() {
     return (
-        <footer className="flex  flex-col  bg-stone-200/50 gap-4  text-teal-700  pt-8 mt-10 ">
+        <footer className="flex  flex-col  bg-stone-200/50 gap-4  text-teal-700  pt-8 mt-10 px-4 md:px-0">
             <div className="flex items-start justify-evenly">
 {/* logo & motto  */}
 <div className="flex flex-col space-y-4">

@@ -6,8 +6,9 @@ import { IoMdHeart } from "react-icons/io";
 
 
 
-function ExperienceCard({
-  id,
+function ExperienceCard({experience}) {
+  const{
+      id,
   image ,
   alt ,
   title ,
@@ -15,7 +16,7 @@ function ExperienceCard({
   category ,
   price ,
   rating ,
-}) {
+  }=experience;
   const [liked, setLiked] = useState(false);
   function addToFavorites() {
     setLiked(!liked);
