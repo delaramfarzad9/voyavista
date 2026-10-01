@@ -25,7 +25,7 @@ function ExperienceCard({experience}) {
     <article className="group relative flex flex-col overflow-hidden rounded-2xl bg-stone-100 transition-colors duration-300 shadow-md ">
       {/* like icon  */}
       <button onClick={addToFavorites} className="absolute z-10 top-4 right-4 p-2 rounded-full  bg-gray-400/50 transition-transform duration-200 hover:scale-110 ">
-       {liked ? <IoMdHeart className="text-2xl text-rose-700/90" /> : <CiHeart className="text-2xl text-white/50" />}
+       {liked ? <IoMdHeart className="text-2xl text-rose-700/90" /> : <CiHeart className="text-2xl text-white/90" />}
         </button>
         {/* image  */}
       <div className=" w-full overflow-hidden">
