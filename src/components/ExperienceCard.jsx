@@ -30,7 +30,7 @@ function ExperienceCard({experience}) {
         {/* image  */}
       <div className=" w-full overflow-hidden">
         <img
-          className="h-44 w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+          className="h-52 w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
           src={image || "/images/default_image.png"}
           alt={image? alt : ""}
           loading="lazy"
