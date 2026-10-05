@@ -66,7 +66,17 @@ const result =await pool.query(`SELECT
     });
  }
 });
+app.get("/experiences/:slug", async (req, res) => {
+  const { slug } = req.params;
 
+  const result = await pool.query(
+  `SELECT * FROM experiences WHERE slug = $1`,
+  [slug]
+);
+
+console.log(result.rows);
+res.json(result.rows[0]);
+});
 
 //  START SERVER
 app.listen(PORT, () => {

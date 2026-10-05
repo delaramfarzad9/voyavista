@@ -9,13 +9,14 @@ import { IoMdHeart } from "react-icons/io";
 function ExperienceCard({experience}) {
   const{
       id,
+      slug,
   image ,
   alt ,
   title ,
   location ,
   category ,
   price ,
-  rating ,
+  description
   }=experience;
   const [liked, setLiked] = useState(false);
   function addToFavorites() {
@@ -54,23 +55,25 @@ function ExperienceCard({experience}) {
             />
             <span className="line-clamp-1">{location}</span>
           </p>
-
-          <span className="flex shrink-0 items-center gap-1 font-semibold text-gray-600">
+{/* rating  */}
+          {/* <span className="flex shrink-0 items-center gap-1 font-semibold text-gray-600">
             <CiStar
               className="text-sm text-amber-500"
               aria-hidden="true"
             />
             {rating}
-          </span>
+          </span> */}
         </div>
+        {/* description  */}
+        <p className="mt-2 line-clamp-2 text-gray-700">{description}</p>
 
         <div className="mt-auto flex items-center justify-between gap-3 pt-4">
           <p className=" text-base font-bold text-teal-600">
           
-            £{price}
+            {price === null ? "Free" : `£${price}`}
           </p>
 
-          <Link   to={`/experiences/${id}`}
+          <Link   to={`/experiences/${slug}`}
            
             className="whitespace-nowrap rounded-lg bg-teal-800 px-3 py-2 text-sm font-semibold text-white transition-colors duration-200 hover:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 sm:px-4"
           >

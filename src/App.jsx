@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import MainLayout from "./layouts/MainLayout";
 import Home from "./pages/Home";
 import About from "./pages/About";
+import ExperienceDetail from "./pages/ExperienceDetail";
 
 
 function App() {
@@ -22,10 +23,8 @@ function App() {
     <Route path="experiences" element={<ExperiencesPage />} />
     <Route path="/about" element={<About />} />
 
-    {/* <Route path="saved" element={<Saved />} />
-
-    <Route path="about" element={<About />} /> */}
-
+    {/* <Route path="saved" element={<Saved />} /> */}
+<Route path="experiences/:slug" element={<ExperienceDetail />} />
   </Route>
 </Routes>
   )
