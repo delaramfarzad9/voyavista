@@ -1,3 +1,4 @@
+import { MapContainer, TileLayer } from "react-leaflet";
 import { useParams } from "react-router-dom";
 import { useState,useEffect } from "react";
 import Loader from "../components/Loader";
@@ -6,6 +7,7 @@ import { CiHeart } from "react-icons/ci";
 import { IoIosHeart } from "react-icons/io";
 import { CgWebsite } from "react-icons/cg";
 import { MdOutlineEventAvailable } from "react-icons/md";
+
 
 import { IoLocationOutline } from "react-icons/io5";
 import { TbClockHour4 } from "react-icons/tb";
@@ -190,7 +192,8 @@ if (error) {
  
 </section>
 {/* information section  */}
-<section className="flex flex-col gap-3 mt-10 mx-4">
+<section className="grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-10 mt-10 mx-4">
+  <div className="flex flex-col gap-3">
   <h3 className="font-bold text-teal-800">Practical Information</h3>
   <div className="flex flex-col gap-4">
     {/* price  */}
@@ -240,6 +243,20 @@ if (error) {
     </div>
 
   </div>
+</div>
+{/* map  */}
+<div className="h-[350px] w-full overflow-hidden rounded-2xl">
+  <MapContainer
+    center={[55.9533, -3.1883]}
+    zoom={13}
+    className="h-full w-full"
+  >
+    <TileLayer
+      attribution='&copy; OpenStreetMap contributors'
+      url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+    />
+  </MapContainer>
+</div>
 </section>
 
  </main>
