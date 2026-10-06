@@ -3,6 +3,7 @@ import SearchBar from "../components/SearchBar";
 import ExperienceCard from "../components/ExperienceCard";
 import SearchSuggestions from "../components/SearchSuggestions";
 import { useState,useEffect } from "react";
+import Loader from "../components/Loader";
 
 
 import experiencesOptionCards from "../data/experiencesOptionCards";
@@ -42,6 +43,10 @@ setExperiences(data);
   getExperiences();
 }, [baseUrl]);
   console.log("API experiences:", experiences);
+  if (loading) {
+  return <Loader />;
+}
+
 
   return (
     <main className="flex flex-col gap-2 mx-4 mt-4 mb-5">

@@ -5,6 +5,8 @@ import MainLayout from "./layouts/MainLayout";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import ExperienceDetail from "./pages/ExperienceDetail";
+import Loader from "./components/Loader";
+import {useEffect } from "react";
 
 
 function App() {
@@ -13,7 +15,14 @@ function App() {
  const [experiences,setExperiences]=useState([]);
  const [loading,setLoading]=useState(true);
  const [error,setError]=useState("");
+ const [appLoading, setAppLoading] = useState(true);
+  useEffect(() => {
+    setAppLoading(false);
+  }, []);
 
+  if (appLoading) {
+    return <Loader fullScreen />;
+  }
   return (
 <Routes>
   <Route path="/" element={<MainLayout />}>

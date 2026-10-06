@@ -1,7 +1,14 @@
 import { useParams } from "react-router-dom";
 import { useState,useEffect } from "react";
+import Loader from "../components/Loader";
+import { IoPricetagsOutline } from "react-icons/io5";
 import { CiHeart } from "react-icons/ci";
 import { IoIosHeart } from "react-icons/io";
+import { CgWebsite } from "react-icons/cg";
+import { MdOutlineEventAvailable } from "react-icons/md";
+
+import { IoLocationOutline } from "react-icons/io5";
+import { TbClockHour4 } from "react-icons/tb";
 import {
   FaPersonWalking,
   FaCamera,
@@ -111,7 +118,7 @@ console.log("STATUS:", response.status);
 }, [baseUrl, slug]);
 
 if (loading) {
-  return <p>Loading...</p>;
+  return <Loader />;
 }
 
 if (error) {
@@ -121,7 +128,7 @@ if (error) {
   return (
  <main className="mx-4">
   {/* herosection  */}
- <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] mt-5 lg:mt-10">
+ <section className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] mt-5 lg:mt-10">
    {/* image  */}
   <div className=" w-full lg:px-4 ">
   <img
@@ -135,17 +142,17 @@ if (error) {
           {/* save icon   */}
           <button onClick={() => setLiked(!liked)} className="absolute  top-5 right-10 bg-gray-200/50  p-2 md:p-3  transition-all duration-200 hover:scale-[1.05] rounded-xl shadow">
            
-            {!liked ? (<div className="flex gap-2 justify-center items-center "> <span className="text-gray-500">Save</span>
-            <CiHeart className="text-gray-400 inline  text-xl" /></div>):(<div className="flex gap-2 justify-center items-center "> <span className="text-gray-600">Saved</span>
+            {!liked ? (<div className="flex gap-2 justify-center items-center "> <span className="text-gray-600">Save</span>
+            <CiHeart className="text-gray-500 inline  text-xl" /></div>):(<div className="flex gap-2 justify-center items-center "> <span className="text-gray-600">Saved</span>
             <IoIosHeart className="text-red-600 inline  text-xl" /></div>)}
           </button>
           {/* header (title & location & activity)  */}
   <div className="mt-2 ">
-     <p className="text-sm text-teal-700 mb-2">{experience.category.toUpperCase()}</p>
-      <h1 className="text-2xl font-semibold text-teal-800 ">{experience.title}</h1>
+     <p className="text-sm text-teal-700 mb-2 font-semibold">{experience.category.toUpperCase()}</p>
+      <h1 className="text-2xl font-dm-serif-display font-semibold tracking-wide text-teal-800 ">{experience.title}</h1>
     <div className="flex gap-6 mt-2">
-      <p className="text-sm text-teal-700">{experience.location}{" · "}{experience.region}</p>
-      <p className="text-sm text-teal-700">{experience.country}</p>
+      <p className="text-sm text-teal-700 font-semibold">{experience.location}{" · "}{experience.region}</p>
+      <p className="text-sm text-teal-700 font-semibold">{experience.country}</p>
      
     </div>
   </div>
@@ -159,16 +166,16 @@ if (error) {
     Plan Your Visit
   </button>
 {/* activities  */}
- <div className="flex flex-col gap-4 mt-6">
-  <h2>What You Experience</h2>
-  <div className="flex gap-5">
+ <div className="flex flex-col gap-5 mt-10  ">
+  <h2 className="font-bold text-teal-800">What You Experience</h2>
+  <div className="flex gap-10">
     {experience.activities.map((activity) => {
   const Icon = activityIcons[activity];
 
   return (
-    <div className="flex gap-1 justify-center place-items-baseline " key={activity}>
-      <Icon className="text-teal-700" />
-      <p cla>{activity}</p>
+    <div className="flex gap-2 items-baseline" key={activity}>
+      <Icon className="text-teal-700 text-2xl " />
+      <p className="font-semibold text-gray-600">{activity}</p>
     </div>
   );
 })}
@@ -181,7 +188,59 @@ if (error) {
         </div>
 
  
-</div>
+</section>
+{/* information section  */}
+<section className="flex flex-col gap-3 mt-10 mx-4">
+  <h3 className="font-bold text-teal-800">Practical Information</h3>
+  <div className="flex flex-col gap-4">
+    {/* price  */}
+    <div className="flex space-x-5 items-center text-gray-700">
+      <IoPricetagsOutline className="text-2xl text-teal-700"/>
+     <div className="flex flex-col justify-center items-start">
+       <span className="text-teal-800 font-semibold">Price</span>
+      <p className="text-gray-700">£{" "}{experience.price}</p>
+      
+     </div>
+    </div>
+    {/* opening hours  */}
+       <div className="flex space-x-5 items-center text-gray-700">
+      <TbClockHour4 className="text-2xl text-teal-700"/>
+     <div className="flex flex-col justify-center items-start">
+       <span className="text-teal-800 font-semibold">Opening Hours</span>
+      <p className="text-gray-700 ">{experience.opening_info}</p>
+      
+     </div>
+    </div>
+    {/* Address  */}
+      <div className="flex space-x-5 items-center text-gray-700">
+      <IoLocationOutline className="text-2xl text-teal-700"/>
+     <div className="flex flex-col justify-center items-start">
+       <span className="text-teal-800 font-semibold">Address</span>
+      <p className="text-gray-700 ">{experience.address}</p>
+      
+     </div>
+    </div>
+    {/* official website  */}
+     <div className="flex space-x-5 items-center text-gray-700">
+      <CgWebsite className="text-2xl text-teal-700"/>
+     <div className="flex flex-col justify-center items-start">
+       <span className="text-teal-800 font-semibold">Official Website</span>
+      <p className="text-gray-700 ">{experience.official_url}</p>
+      
+     </div>
+    </div>
+    {/* bookable  */}
+    <div className="flex space-x-5 items-center text-gray-700">
+      <MdOutlineEventAvailable className="text-2xl text-teal-700"/>
+     <div className="flex flex-col justify-center items-start">
+       <span className="text-teal-800 font-semibold">Bookable</span>
+      <p className="text-gray-700 ">{experience.bookable ? "Yes" : "No"}</p>
+      
+     </div>
+    </div>
+
+  </div>
+</section>
 
  </main>
   );
