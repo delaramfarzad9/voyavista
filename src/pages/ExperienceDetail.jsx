@@ -1,4 +1,4 @@
-import { MapContainer, TileLayer } from "react-leaflet";
+import { MapContainer, TileLayer, Marker  } from "react-leaflet";
 import { useParams } from "react-router-dom";
 import { useState,useEffect } from "react";
 import Loader from "../components/Loader";
@@ -7,6 +7,7 @@ import { CiHeart } from "react-icons/ci";
 import { IoIosHeart } from "react-icons/io";
 import { CgWebsite } from "react-icons/cg";
 import { MdOutlineEventAvailable } from "react-icons/md";
+import { FcGoogle } from "react-icons/fc";
 
 
 import { IoLocationOutline } from "react-icons/io5";
@@ -126,7 +127,10 @@ if (loading) {
 if (error) {
   return <p>{error}</p>;
 }
-
+// googlemap 
+const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+  experience.address
+)}`;
   return (
  <main className="mx-4">
   {/* herosection  */}
@@ -151,7 +155,7 @@ if (error) {
           {/* header (title & location & activity)  */}
   <div className="mt-2 ">
      <p className="text-sm text-teal-700 mb-2 font-semibold">{experience.category.toUpperCase()}</p>
-      <h1 className="text-2xl font-dm-serif-display font-semibold tracking-wide text-teal-800 ">{experience.title}</h1>
+      <h1 className="lg:text-4xl text-2xl font-dm-serif-display font-semibold tracking-wide text-teal-800 ">{experience.title}</h1>
     <div className="flex gap-6 mt-2">
       <p className="text-sm text-teal-700 font-semibold">{experience.location}{" · "}{experience.region}</p>
       <p className="text-sm text-teal-700 font-semibold">{experience.country}</p>
@@ -159,7 +163,7 @@ if (error) {
     </div>
   </div>
   {/* description  */}
-  <div className="lg:mt-10 mt-2 ">
+  <div className="lg:mt-5 mt-2 ">
     <p className="text-gray-700">{experience.long_description}</p>
   </div>
   {/*CTA */}
@@ -168,7 +172,7 @@ if (error) {
     Plan Your Visit
   </button>
 {/* activities  */}
- <div className="flex flex-col gap-5 mt-10  ">
+ <div className="flex flex-col gap-5 mt-4  ">
   <h2 className="font-bold text-teal-800">What You Experience</h2>
   <div className="flex gap-10">
     {experience.activities.map((activity) => {
@@ -192,9 +196,9 @@ if (error) {
  
 </section>
 {/* information section  */}
-<section className="grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-10 mt-10 mx-4">
-  <div className="flex flex-col gap-3">
-  <h3 className="font-bold text-teal-800">Practical Information</h3>
+<section className="grid grid-cols-1 lg:grid-cols-2 space-x-5 mt-10 mx-4">
+  <div className="flex flex-col gap-5 max-w-2xl">
+  <h3 className="font-bold text-xl text-teal-800">Practical Information</h3>
   <div className="flex flex-col gap-4">
     {/* price  */}
     <div className="flex space-x-5 items-center text-gray-700">
@@ -245,9 +249,10 @@ if (error) {
   </div>
 </div>
 {/* map  */}
-<div className="h-[350px] w-full overflow-hidden rounded-2xl">
+<div className="flex flex-col   gap-3">
+  <div className="h-[350px] w-full overflow-hidden rounded-2xl">
   <MapContainer
-    center={[55.9533, -3.1883]}
+    center={[experience.latitude, experience.longitude]}
     zoom={13}
     className="h-full w-full"
   >
@@ -255,8 +260,23 @@ if (error) {
       attribution='&copy; OpenStreetMap contributors'
       url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
     />
+    <Marker
+  position={[experience.latitude, experience.longitude]}
+/>
   </MapContainer>
 </div>
+{/* google map BUTTON  */}
+<a
+  href={googleMapsUrl}
+  target="_blank"
+  rel="noopener noreferrer"
+  className="flex w-1/3 gap-1 bg-gray-200/50  p-2 md:p-3  transition-all duration-200 hover:scale-[1.05] rounded-xl shadow items-center justify-center text-teal-800"
+>
+  <FcGoogle className="text-xl" />
+  Open in Google Maps
+</a>
+</div>
+
 </section>
 
  </main>

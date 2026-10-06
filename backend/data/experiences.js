@@ -35,6 +35,8 @@ const experiences = [
 
     address:
       "Seven Sisters Country Park, Exceat, Seaford, East Sussex BN25 4AD",
+      latitude: 50.77522,
+longitude: 0.15333,
 
     officialUrl: "https://www.sevensisters.org.uk/",
     bookable: false,
@@ -71,6 +73,8 @@ const experiences = [
       "1 Apr-30 Sep: 09:30-18:00, last entry 17:00. 1 Oct-23 Dec and most winter dates: 09:30-17:00, last entry 16:00. Closed 25-26 Dec.",
 
     address: "Castlehill, Edinburgh EH1 2NG",
+    latitude: 55.94846,
+longitude: -3.199883,
 
     officialUrl: "https://www.edinburghcastle.scot/",
     bookable: true,
@@ -107,7 +111,8 @@ const experiences = [
       "The landscape is open year-round. Conditions, car parks, buses and individual visitor facilities vary by location and season.",
 
     address: "Eryri National Park, North Wales",
-
+latitude: 53.0685,
+longitude: -4.0763,
     officialUrl: "https://eryri.gov.wales/",
     bookable: false,
   },
@@ -144,7 +149,8 @@ const experiences = [
 
     address:
       "44 Causeway Road, Bushmills, County Antrim BT57 8SU",
-
+latitude: 55.23334,
+longitude: -6.51674,
     officialUrl:
       "https://www.nationaltrust.org.uk/visit/northern-ireland/giants-causeway",
 
@@ -182,7 +188,8 @@ const experiences = [
       "Currently generally 09:30-17:00, with last admission earlier than closing. Special-event and solstice hours can differ.",
 
     address: "Near Amesbury, Wiltshire SP4 7DE",
-
+latitude: 51.1831565,
+longitude: -1.8588747,
     officialUrl:
       "https://www.english-heritage.org.uk/visit/places/stonehenge/",
 
@@ -219,7 +226,8 @@ const experiences = [
       "Hours vary by day. Around early October 2026, opening is generally 09:00 or 10:00 to 17:30, with last entry around 16:30.",
 
     address: "Tower of London, London EC3N 4AB",
-
+latitude: 51.508,
+longitude: -0.076,
     officialUrl: "https://www.hrp.org.uk/tower-of-london/",
     bookable: true,
   },
@@ -255,7 +263,8 @@ const experiences = [
       "Opening hours vary by date. Many October 2026 dates are around 10:00-18:00, with last entry about two hours before closing.",
 
     address: "Marylebone Road, London NW1 5LR",
-
+latitude: 51.523006,
+longitude: -0.154484,
     officialUrl: "https://www.madametussauds.com/london/",
     bookable: true,
   },
@@ -291,7 +300,8 @@ const experiences = [
       "1 Sep-31 Oct 2026: daily 09:00-18:00, last admission 17:00. Closed Christmas Day and Boxing Day; other seasonal hours vary.",
 
     address: "Abbey Church Yard, Bath BA1 1LZ",
-
+latitude: 51.38103,
+longitude: -2.35968,
     officialUrl: "https://www.romanbaths.co.uk/",
     bookable: true,
   },
@@ -327,7 +337,8 @@ const experiences = [
       "Usually opens from 10:00 on operating days; closing time varies by date. Some off-season dates are closed.",
 
     address: "Castle Hill, Warwick CV34 4QU",
-
+latitude: 52.27932,
+longitude: -1.58480,
     officialUrl: "https://www.warwick-castle.com/",
     bookable: true,
   },
@@ -364,7 +375,8 @@ const experiences = [
 
     address:
       "Goodwood Motor Circuit, Chichester, West Sussex PO18 0PH",
-
+latitude: 50.85914,
+longitude: -0.75331,
     officialUrl:
       "https://www.goodwood.com/motorsport/driving-experiences/",
 
@@ -401,6 +413,8 @@ const experiences = [
 
     address:
       "Tinwood Farm, Halnaker, Chichester, West Sussex PO18 0NE",
+latitude: 50.86632,
+longitude: -0.70737,
 
     officialUrl:
       "https://www.tinwoodestate.com/experience/vineyard-tours/",
@@ -439,7 +453,8 @@ const experiences = [
       "The mosque states that it is open seven days a week and visitors are welcome. Visit respectfully around prayer times; arranged tours should be booked in advance.",
 
     address: "149 Oriental Road, Woking GU22 7BA",
-
+latitude: 51.32267,
+longitude: -0.54454,
     officialUrl: "https://shahjahanmosque.org.uk/",
     bookable: false,
   },
@@ -475,7 +490,8 @@ const experiences = [
       "Outdoor public areas do not have formal attraction opening hours. Be considerate of residents and private property.",
 
     address: "Arlington Row, Bibury, Cirencester GL7 5NJ",
-
+latitude: 51.75850,
+longitude: -1.83480,
     officialUrl:
       "https://www.nationaltrust.org.uk/visit/gloucestershire-cotswolds/bibury",
 
@@ -513,6 +529,8 @@ const experiences = [
       "Monday-Saturday 11:45-22:00; Sunday 11:45-21:00, according to the current official location information.",
 
     address: "9 Cotton Street, Ancoats, Manchester",
+latitude: 53.48420,
+longitude: -2.22940,
 
     officialUrl: "https://www.rudyspizza.co.uk/location/ancoats/",
     bookable: true,
@@ -549,7 +567,8 @@ const experiences = [
       "Hours vary by date. From 28 September to 16 October 2026, ticket desks are 10:00-14:30 and Eden closes at 16:00; later autumn dates differ.",
 
     address: "Eden Project, Bodelva, Cornwall PL24 2SG",
-
+latitude: 50.36126,
+longitude: -4.74422,
     officialUrl: "https://www.edenproject.com/",
     bookable: true,
   },
@@ -585,7 +604,8 @@ const experiences = [
 
     address:
       "Fort William railway area, Fort William, Highland",
-
+latitude: 56.82056,
+longitude: -5.10531,
     officialUrl: "https://westcoastrailways.co.uk/jacobite",
     bookable: true,
   },
@@ -621,7 +641,8 @@ const experiences = [
       "Open throughout the year for worship, events and sightseeing, but access varies. Current visitor information shows first admission at 09:30 and last admission at 16:00; always check the visit calendar.",
 
     address: "York Minster, Deangate, York YO1 7HH",
-
+latitude: 53.96234,
+longitude: -1.08208,
     officialUrl: "https://yorkminster.org/visit/",
     bookable: true,
   },
@@ -658,7 +679,8 @@ const experiences = [
 
     address:
       "Bowness Pier, Bowness-on-Windermere, Cumbria",
-
+latitude: 54.36368,
+longitude: -2.92310,
     officialUrl: "https://www.windermere-lakecruises.co.uk/",
     bookable: true,
   },
@@ -695,7 +717,8 @@ const experiences = [
 
     address:
       "Portmeirion, Penrhyndeudraeth, Gwynedd LL48 6ER",
-
+latitude: 52.91207,
+longitude: -4.09934,
     officialUrl: "https://portmeirion.wales/visit",
     bookable: true,
   },
@@ -736,7 +759,8 @@ const experiences = [
 
     address:
       "1 Olympic Way, Queen's Road, Titanic Quarter, Belfast BT3 9EP",
-
+latitude: 54.60813,
+longitude: -5.90988,
     officialUrl: "https://www.titanicbelfast.com/",
     bookable: true,
   },

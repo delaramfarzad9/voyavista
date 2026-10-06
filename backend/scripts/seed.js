@@ -33,13 +33,16 @@ async function seedExperiences() {
           opening_info,
           address,
           bookable,
-          official_url
+          official_url,
+          latitude,
+longitude
         )
         VALUES (
           $1, $2, $3, $4, $5,
           $6, $7, $8, $9, $10,
           $11, $12, $13, $14, $15,
-          $16, $17, $18, $19
+          $16, $17, $18, $19, $20,
+$21
         )
 
         ON CONFLICT (slug)
@@ -61,7 +64,9 @@ async function seedExperiences() {
           opening_info = EXCLUDED.opening_info,
           address = EXCLUDED.address,
           bookable = EXCLUDED.bookable,
-          official_url = EXCLUDED.official_url
+          official_url = EXCLUDED.official_url,
+latitude = EXCLUDED.latitude,
+longitude = EXCLUDED.longitude
         `,
         [
           experience.slug,
@@ -83,6 +88,8 @@ async function seedExperiences() {
           experience.address,
           experience.bookable,
           experience.officialUrl,
+          experience.latitude,
+          experience.longitude
         ]
       );
 
