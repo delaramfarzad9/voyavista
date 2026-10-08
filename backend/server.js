@@ -33,6 +33,9 @@ app.use(express.json());
 
 //  ROUTES
 app.get("/experiences",async (req, res) => {
+  const { search } = req.query;
+  const searchTerm = `%${search || ""}%`;
+  console.log("Search:", search);
  try{
 const result =await pool.query(`SELECT
     id,
@@ -56,7 +59,12 @@ const result =await pool.query(`SELECT
     bookable,
     official_url AS "officialUrl"
   FROM experiences
-  ORDER BY id`);
+  WHERE
+  title ILIKE $1
+  OR location ILIKE $1
+  OR region ILIKE $1
+  OR country ILIKE $1
+  OR category ILIKE $1`,[searchTerm]);
  res.json(result.rows);
 
  }catch(error){

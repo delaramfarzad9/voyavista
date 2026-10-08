@@ -1,4 +1,3 @@
-// VoyaVista seed data
 // Research checked against official visitor/attraction sources.
 // Prices and opening times can change, so users should verify officialUrl before travel.
 

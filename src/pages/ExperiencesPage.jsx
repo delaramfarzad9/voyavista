@@ -1,34 +1,37 @@
-import OptionCards from "../components/OptionCards";
+import {CiLocationOn} from "react-icons/ci";
 import SearchBar from "../components/SearchBar";
 import ExperienceCard from "../components/ExperienceCard";
 import SearchSuggestions from "../components/SearchSuggestions";
 import { useState,useEffect } from "react";
 import Loader from "../components/Loader";
+import { Link } from "react-router-dom";
 
-
-import experiencesOptionCards from "../data/experiencesOptionCards";
 
 function ExperiencesPage() {
   const [experiences,setExperiences]=useState([]);
   const [loading,setLoading]=useState(true);
 const [error,setError]=useState("");
+const [search, setSearch] = useState("");
+const [debouncedSearch, setDebouncedSearch] = useState("");
+const [showSuggestions, setShowSuggestions] = useState(false);
 const baseUrl = import.meta.env.VITE_API_URL;
 
 useEffect(() => {
   async function getExperiences() {
+    const url = `${baseUrl}/experiences?search=${encodeURIComponent(debouncedSearch)}`;
+    console.log("Fetching:", url);
+
+
     try {
      setError("")
-      const response =await fetch(`${baseUrl}/experiences`)
+     const response = await fetch(url);
     
 if(!response.ok){
   throw new Error ("Failed to fetch experiencesl");
 }
 const data =await response.json();
 setExperiences(data);
-      
-   
-
-     
+        
     } 
        catch(err){
         console.error(err);
@@ -41,8 +44,30 @@ setExperiences(data);
   }
 
   getExperiences();
-}, [baseUrl]);
+}, [baseUrl, debouncedSearch]);
   console.log("API experiences:", experiences);
+
+  useEffect(() => {
+  const timer = setTimeout(() => {
+    setDebouncedSearch(search.trim());
+  }, 300);
+
+  return () => {
+    clearTimeout(timer);
+  };
+}, [search]);
+console.log("Immediate:", search);
+console.log("Debounced:", debouncedSearch);
+function handleSearchChange(e) {
+ 
+  setSearch(e.target.value);
+   setShowSuggestions(true);
+}
+
+function handleSearchSubmit() {
+  setDebouncedSearch(search.trim());
+  setShowSuggestions(false);
+}
   if (loading) {
   return <Loader />;
 }
@@ -61,8 +86,23 @@ setExperiences(data);
       {/* Search section  */}
     <section className="flex flex-col gap-4 items-center border-b p-5 border-gray-300">
         {/* searchBar */}
-        <div className="mx-auto flex w-full max-w-4xl flex-col gap-4">
- <SearchBar placeholder="Search experiences or destinations..." className=" rounded-lg  border-white border-2 lg:h-16" />
+        <div className="relative mx-auto flex w-full max-w-4xl flex-col gap-4">
+ <SearchBar value={search} onChange={handleSearchChange}  onSubmit={handleSearchSubmit}  placeholder="Search experiences or destinations..." className=" rounded-lg  border-white border-2 lg:h-16" />
+  {showSuggestions && search.trim() && (
+    <div className="absolute top-full left-0 z-20 mt-1 w-full rounded-lg border border-gray-200 bg-gray-100 p-3 shadow-lg ">
+      {experiences.length > 0 ? (experiences.slice(0, 5).map((experience) => (
+        <Link key={experience.id} to={`/experiences/${experience.slug}`} className="flex w-full items-center gap-2 rounded-md p-3 text-teal-700 transition-colors hover:bg-teal-50 focus-visible:bg-teal-50">
+          <CiLocationOn className="text-lg"/>
+          <p >
+            {experience.title}
+          </p>
+        </Link>
+      ))): (
+  <p className="p-3 text-sm text-gray-500">
+    No matching experiences found.
+  </p>)}
+    </div>
+  )}
         </div>
      
       {/* search suggestions  */}
@@ -115,65 +155,9 @@ key={experience.id} experience={experience}
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
    </section>
 
-        {/* <div className="grid grid-cols-2 lg:grid-cols-4 lg:gap-4 lg:mx-44 gap-2 my-4">
-          {experiencesOptionCards.map((card) => (
-            <OptionCards
-              key={card.id}
-              title={card.title}
-              iconTag={card.iconTag}
-            />
-          ))}
-        </div> */}
-     
-      
-
-
-      {/* <section className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        <ExperienceCard
-          title="Street Food Tour"
-          location="London, UK"
-          category="Food"
-          price={96}
-          rating={4.5}
-        />
-        <ExperienceCard
-          title="Sunset Sailing"
-          location="Santorini, Greece"
-          category="Adventure"
-          price={140}
-          rating={4.8}
-        />
-        <ExperienceCard
-          title="Old Town Walking Tour"
-          location="Lisbon, Portugal"
-          category="Culture"
-          price={45}
-          rating={4.6}
-        />
-        <ExperienceCard
-          title="Mountain Hiking"
-          location="Interlaken, Switzerland"
-          category="Outdoor"
-          price={120}
-          rating={4.9}
-        />
-      </section> */}
+    
     </main>
   );
 }
