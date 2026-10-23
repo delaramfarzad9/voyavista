@@ -8,7 +8,7 @@ function FeaturedExperiences({className}) {
  {/* header  */}
      <div className="flex  justify-between">
          <span className="text-lg   text-nowrap  flex md:self-baseline-last  text-teal-700 
-    font-bold
+    font-bold tracking-wide
     ">Most Visited
         
       

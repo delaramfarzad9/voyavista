@@ -1,11 +1,13 @@
 import { Link } from "react-router-dom";
+import logo from "../../public/images/logo/logo6.png";
 function Footer() {
     return (
         <footer className="flex  flex-col  bg-stone-200/50 gap-2 md:gap-4  text-teal-700  pt-8 mt-10 px-4 md:px-0">
             <div className="flex flex-col md:flex-row items-start justify-evenly gap-4 md:gap-0 ">
 {/* logo & motto  */}
 <div className="flex flex-col space-y-2 md:space-y-4">
-<Link className="font-pacifico md:text-3xl text-2xl text-teal-700" to="/">VoyaVista</Link>
+<Link className="" to="/">
+<img src={logo} alt="VoyaVista" className="h-12 w-auto" /></Link>
           <p className="text-[0.7rem] md:text-xs font-semibold uppercase tracking-[0.3em] text-teal-800">
   Voyage · Discover · Remember
 </p>

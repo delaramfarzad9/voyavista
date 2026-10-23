@@ -33,10 +33,11 @@ function About() {
           className="
             mx-auto mt-4
             max-w-3xl
-            font-dm-serif-display
+            font-bold
+            font-fraunces
             text-4xl
             leading-tight
-            text-gray-900
+            text-teal-900
             md:text-5xl
             lg:text-6xl
           "
@@ -114,9 +115,10 @@ function About() {
           <h2
             className="
               mt-3
-              font-dm-serif-display
+              font-fraunces
+              font-bold
               text-3xl
-              text-gray-900
+              text-teal-900
               md:text-4xl
             "
           >
@@ -158,7 +160,7 @@ function About() {
               items-center
               gap-2
               text-sm
-              font-medium
+              font-semibold
               text-teal-700
               transition-all
               duration-300
@@ -202,9 +204,10 @@ function About() {
             <h2
               className="
                 mt-3
-                font-dm-serif-display
+                font-fraunces
+                font-bold
                 text-3xl
-                text-gray-900
+                text-teal-900
                 md:text-4xl
               "
             >
@@ -289,9 +292,9 @@ function About() {
           <h2
             className="
               mt-3
-              font-dm-serif-display
+              font-fraunces
               text-3xl
-              text-gray-900
+              text-teal-900
               md:text-4xl
             "
           >
@@ -477,9 +480,10 @@ shadow-sm
           <h2
             className="
               mt-3
-              font-dm-serif-display
+              font-fraunces
+              font-bold
               text-3xl
-              text-gray-900
+              text-teal-900
               md:text-4xl
             "
           >

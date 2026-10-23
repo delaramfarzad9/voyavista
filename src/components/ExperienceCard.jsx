@@ -1,4 +1,4 @@
-import { CiStar, CiLocationOn } from "react-icons/ci";
+import {  CiLocationOn } from "react-icons/ci";
 import {Link} from "react-router-dom";
 import { CiHeart } from "react-icons/ci";
 import { useState } from "react";
@@ -43,7 +43,7 @@ function ExperienceCard({experience}) {
           {category}
         </p>
 
-        <h2 className="line-clamp-1 text-lg font-bold text-teal-900">
+        <h2 className="line-clamp-1 text-lg font-semibold text-teal-900">
           {title}
         </h2>
 
